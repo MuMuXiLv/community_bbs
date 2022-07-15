@@ -97,8 +97,6 @@ public class LoginController implements CommunityConstant {
         // 将验证码存入session
         // session.setAttribute("kaptcha", text);
 
-<<<<<<< HEAD
-=======
         // 验证码的临时归属 因为此时用户还没有登录 不知道用户是谁，所以需要给它一个临时归属
         String kaptchaOwner = CommunityUtil.generateUUID();
         Cookie cookie = new Cookie("kaptchaOwner", kaptchaOwner);
@@ -108,8 +106,6 @@ public class LoginController implements CommunityConstant {
         // 将验证码存入Redis
         String redisKey = RedisKeyUtil.getKaptchaKey(kaptchaOwner);
         redisTemplate.opsForValue().set(redisKey, text, 60, TimeUnit.SECONDS);
-
->>>>>>> 436811c (将community_bbs项目添加到本地库)
         // 将图片输出给浏览器
         response.setContentType("image/png");
         try {
